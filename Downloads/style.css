@@ -83,7 +83,7 @@ body {
 	color:#666666;
 	line-height:1.7em;
 	font-weight:400;
-	background:#ffffff;
+	background:#000;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 	font-family: 'Poppins', sans-serif;
@@ -1820,6 +1820,8 @@ img{
 
 .work-section.style-two.alternate{
 	padding-bottom: 130px;
+	top: 200px!important;
+        background: #000;
 }
 
 .work-section.style-two.alternate .work-step{
