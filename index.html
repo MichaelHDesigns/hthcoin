@@ -65,7 +65,7 @@
 </footer>
 
 <script>
-// Automatic Slideshow - change image every 3 seconds
+// Automatic Slideshow - change image every 10 seconds
 var myIndex = 0;
 carousel();
 
@@ -78,7 +78,7 @@ function carousel() {
   myIndex++;
   if (myIndex > x.length) {myIndex = 1}
   x[myIndex-1].style.display = "block";
-  setTimeout(carousel, 3000);
+  setTimeout(carousel, 10000);
 }
 </script>
 
