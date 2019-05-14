@@ -26,7 +26,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-121537271-1');
     </script>
   <title>https://devilking6105.github.io/hthcoin/</title>
@@ -93,15 +92,13 @@
     </div>
   </div>
 </nav>
-
 <!--Page Title-->
-<section class="page-title" style="background: #000">
+<section class="page-title" style="background-image:url(images/background/homeless-2223116_1280.jpg); background-position: bottom;">
     <div class="auto-container">
         <h1>Charitable Fund</h1>
     </div>
 </section>
 <!--End Page Title-->
-
 <!-- Work Section -->
 <section class="work-section style-two alternate">
     <div class="auto-container">
@@ -117,13 +114,10 @@
                                 <h1><span class="js-raised">79,529,245</span> HTH</h1>
                             </div>
                         </div>
-
-
                         <h4 class=" text-center">Thanks to all the miners and donators for being part of Help&nbsp;The&nbsp;Homeless&nbsp;Coin</h4>
                         <p class=" text-center">If you would like to 
 donate, below are wallets in BTC and HTH.  Any donation is highly 
 appreciated and will go to good use for the cause.</p>
-
                         <div class="row clearfix">
                             <div class="col-xs-12 col-lg-6 text-center" style="margin-top: 40px;">
                                 <h4>BTC Address:</h4>
@@ -143,32 +137,8 @@ appreciated and will go to good use for the cause.</p>
     </div>
 </section>
 <!-- End Work Section -->
-<!--Main Footer-->
-<footer class="main-footer" style="background-image: url(images/background/homeless-2223116_1280.jpg);">
-    <!--Upper-->
-    <div class="footer-upper">
-        <div class="auto-container">
-            <div class="outer-box">
-                <!--Footer Logo-->
-                
-
-                    <div class="big-column col-md-7 col-sm-12 col-xs-12">
-                        <div class="row clearfix">
-                            <!--Footer Column-->
-                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                                <h3>Follow/Contact</h3>
-                                <ul class="footer-links">
-                                    <li><a href="mailto:hthcoin@gmail.com">hthcoin@gmail.com</a></li>
-                                    <li><a href="https://bitcointalk.org/index.php?topic=4578705.0" target="_blank" rel="nofollow noopener">Announcement</a></li>
-                                    <li><a href="https://fb.me/HTHCoin.World" target="_blank" rel="nofollow">Facebook</a></li>
-                                    <li><a href="https://twitter.com/HTHCoin" target="_blank" rel="nofollow">Twitter</a></li>
-                                    <li><a href="https://discord.gg/qjcs5TP" target="_blank" rel="nofollow">Discord</a></li>
-                                </ul>
-                            </div>
-
-                           
-
-
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up" style="color:#fcc005"></span></div>
 <script src="Charity/jquery.js"></script>
 <script src="Charity/bootstrap.js"></script>
 <!--Revolution Slider-->
@@ -203,92 +173,69 @@ appreciated and will go to good use for the cause.</p>
         to,
         btcaddr = '3Kmqb2d9fBTq7kr66Hp5N47661QzS9dKoQ',
         hthAddress = 'HF5rjaXU7s3QCKuSb6uYJvAeVa3qWC3MKm';
-
     resetColors = function() {
-
         $bar
             .removeClass("progress__bar--green")
             .removeClass("progress__bar--yellow")
             .removeClass("progress__bar--orange")
             .removeClass("progress__bar--blue");
-
         $progress
             .removeClass("progress--complete");
-
     };
-
     update = function() {
         $.getJSON('https://api.coingecko.com/api/v3/coins/help-the-homeless-coin', function(res) {
             var price = res.tickers[0].converted_last.btc;
             /*price = price.split('0.')[1];
             price = +price;*/
-
             $('#jsLastPrice').text("1 HTH = " + price + " BTC");
         }).fail(function(e) {
             console.log(e);
         });
-
         $.getJSON('https://blockchain.info/q/addressbalance/'+ btcaddr +'?confirmations=1', function(balance) {
             btc = +balance;
         });
-
         $.getJSON('https://api.crypto-bridge.org/api/v1/ticker', function(d) {
             d.forEach(function(ticker) {
                 if(ticker.id === 'HTH_BTC') {
                     hthToBtc = +ticker.last;
-
                     return false;
                 }
             });
         });
-
         $.getJSON('https://explorer.hth.world/ext/getaddress/' + hthAddress, function(res) {
             console.log(res);
-
             hth = +res.balance * 100000000;
         }).fail(function(e) {
             console.log(e);
         });
-
         $('.js-hth-addy').each(function(i, e) {
             var addy = $(e).data('addy');
             $.getJSON('https://explorer.hth.world/ext/getaddress/' + addy, function(res) {
                 $(e).text(parseInt(res.received).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             });
         });
-
         to = setInterval(function() {
             if(hth) {
                 clearInterval(to);
                 to = null;
-
                 $('.js-raised').text(parseInt(hth / 100000000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             }
-
         }, 60000);
-
         setTimeout(function() {
             update();
         }, 60000 * 5);
     };
-
     $progress.addClass("progress--active");
     update();
-
     var clipboard = new ClipboardJS('.js-copy');
-
     clipboard.on('success', function(e) {
         alert('Address Copied!');
-
         e.clearSelection();
     });
-
     var clip = new ClipboardJS('.js-hth-copy');
     clip.on('success', function(e) {
         alert('Address Copied!');
-
         e.clearSelection();
     });
 </script>
-
 </body></html>
