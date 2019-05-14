@@ -1,4 +1,4 @@
-#navbar-inverse {
+navbar-inverse {
 	width: 100%;
 	float: right;
 	margin: 0 0 1em 0;
@@ -6,22 +6,22 @@
 	background-color: #000;
 	border-bottom: 1px solid #000;
 	}
-#nav ul {
+nav ul {
 	list-style: none;
 	width: 800px;
 	margin: 0 auto;
 	padding: 20; }
-#nav li {
+nav li {
 	float: left; }
-#nav li a {
+nav li a {
 	display: block;
 	padding: 20px 50px;
 	text-decoration: none;
 	font-weight: bold;
 	color: #debf12;
 	border-right: 1px solid #ccc; }
-#nav li:first-child a {
+nav li:first-child a {
 	border-left: 1px solid #ccc; }
-#nav li a:hover {
+nav li a:hover {
 	color: #34bcaa;
 	background-color: #000; }
